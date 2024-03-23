@@ -26,7 +26,7 @@ $(PROGRAM): $(BUILD_DIR)/boot.o $(OBJS)
 	$(OBJCOPY) -O binary $(BUILD_DIR)/kernel8.elf $@
 
 run: $(PROGRAM)
-	qemu-system-aarch64 -M raspi3b -serial stdio -kernel $^
+	qemu-system-aarch64 -M raspi3b -serial stdio -vnc :2180 -kernel $^
 
 clean:
 	rm -rf $(BUILD_DIR)/*
